@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# YuQi created
+__mtime__ = '2017/3/12'
+
+import sys
+from PyQt4 import QtGui,QtCore
+
+
+class Example(QtGui.QWidget):
+    def __init__(self):
+        super(Example, self).__init__()
+
+        self.initUI()
+
+    def initUI(self):
+        self.pbar = QtGui.QProgressBar(self)
+        self.pbar.setGeometry(30,40,200,25)
+
+        self.button = QtGui.QPushButton('start',self)
+        self.button.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.button.move(40,80)
+
+        self.connect(self.button,QtCore.SIGNAL('clicked()'),self.doAction)
+        self.timer = QtCore.QBasicTimer()
+        self.step = 0
+
+        self.setWindowTitle('ProgressBar')
+        self.setGeometry(300,300,250,150)
+    def timerEvent(self, event):
+        if self.step>=100:
+            self.timer.stop()
+            return
+        self.step+=1
+        self.pbar.setValue(self.step)
+    def doAction(self):
+        if self.timer.isActive():
+            self.timer.stop()
+            self.button.setText('Start')
+        else:
+            #计时100ms
+            self.timer.start(100,self)
+            self.button.setText('Stop')
+
+app = QtGui.QApplication(sys.argv)
+ex = Example()
+ex.show()
+sys.exit(app.exec_())
