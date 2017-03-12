@@ -8,6 +8,8 @@
     - QSlider 滑块
     - QCheckBox 复选框，每段复选框被选中或者清除时都会发射信号`stateChanged()`
     - QProgressBar 进度条
+    - QPixMap 是用于显示图像的组件
+    - QLineEdit 用于单行文本编辑
 #布局
 ##Absolute布局（不好）
 ##框布局

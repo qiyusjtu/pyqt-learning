@@ -17,9 +17,13 @@ class Example(QtGui.QWidget):
 
 
         self.setWindowTitle('')
-        self.resize(250,300)
+        self.setGeometry(600,300,250,300)
 
-app = QtGui.QApplication(sys.argv)
-ex = Example()
-ex.show()
-sys.exit(app.exec_())
+def main():
+    app = QtGui.QApplication(sys.argv)
+    ex = Example()
+    ex.show()
+    sys.exit(app.exec_())
+
+if __name__ =='__main__':
+    main()

@@ -10,7 +10,6 @@ from PyQt4 import QtGui,QtCore
 class Example(QtGui.QWidget):
     def __init__(self):
         super(Example, self).__init__()
-
         self.initUI()
 
     def initUI(self):
@@ -19,7 +18,7 @@ class Example(QtGui.QWidget):
         label1 = QtGui.QLabel(self)
         label1.setPixmap(pixmap)
 
-        hbox.addWidget(label1)
+        hbox.addWidget(label1,alignment=QtCore.Qt.AlignCenter)
         self.setLayout(hbox)
 
         self.setWindowTitle('Haha')
